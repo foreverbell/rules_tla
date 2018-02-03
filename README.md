@@ -11,6 +11,8 @@ Try it with `bazel test examples/...`.
 # Example
 
 ```bazel
+load("//tla:tla.bzl", "tla_module", "tlc_test")
+
 tla_module(
   name = "hourclock",
   src = "hourclock.tla",
