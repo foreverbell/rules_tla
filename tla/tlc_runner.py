@@ -25,17 +25,18 @@ parameters.append('-workers')
 parameters.append(argv[4])
 
 # Does not check for deadlock if set.
-if not bool(argv[5]):
+if argv[5] == 'False':
   parameters.append('-deadlock')
 
 # TLA code assumes that all paths are in the current directory. So `chdir` into
 # that.
-chdir(tla_dir)
+if len(tla_dir) > 0:
+  chdir(tla_dir)
 
-# Invoke TLC model checker.
+# Invokes TLC model checker.
 tlc_result = check_output(["java", "-cp", tla2tools_path, "tlc2.TLC"] + parameters)
 
-# Find clues if TLC succeeds.
+# Finds clues whether TLC succeeds from TLC output.
 ok = False
 for l in tlc_result.splitlines():
   if l.startswith("Model checking completed. No error has been found."):

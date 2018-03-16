@@ -51,7 +51,7 @@ python {runner} {tla2tools} {input} {config} {workers} {deadlock}
     input = mod_src.short_path,
     config = ctx.file.cfg.short_path,
     workers = ctx.attr.workers,
-    deadlock = ctx.attr.workers,
+    deadlock = ctx.attr.deadlock,
   )
   print(ctx.files._tla[0].root)
   print(content)
