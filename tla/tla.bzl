@@ -72,3 +72,9 @@ tlc_test = rule(
   executable = True,
   test = True
 )
+
+def tla_repositories():
+  native.http_jar(
+    name = "tla2tools",
+    url = "https://tla.msr-inria.inria.fr/tlatoolbox/dist/tla2tools.jar",
+  )

@@ -25,6 +25,9 @@ git_repository(
   # NOT VALID! Replace this with a Git commit SHA.
   commit = "{HEAD}",
 )
+
+load("@rules_tla//tla:tla.bzl", "tla_repositories")
+tla_repositories()
 ```
 
 # Example
